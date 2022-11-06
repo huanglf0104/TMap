@@ -9,9 +9,16 @@ const countReducer = (state = initiallValue, action) => {
       return {
         count: state.count + 1
       }
-      break;
+    case 'decrement':
+      return {
+        count: state.count - 1
+      }
+    case 'increment_n':
+      return {
+        count: state.count + action.payload
+      }
     default:
-      break;
+      return state
   }
 }
 
