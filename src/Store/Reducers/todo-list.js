@@ -4,6 +4,8 @@ import {
   todo_load_success,
   add_todo,
   add_todo_success,
+  delete_todo,
+  delete_todo_success
 } from '../Actions/todo-list'
 
 // 初始值
@@ -21,6 +23,12 @@ export default createReducer(
         todos: [...state.todos, action.payload],
       }
     },
+    [delete_todo_success]: (state, action) => {
+      console.log(action)
+      return {
+        todos: action.payload
+      }
+    }
   },
   initialState
 )

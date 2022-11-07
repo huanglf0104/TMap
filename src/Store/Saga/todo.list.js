@@ -5,6 +5,8 @@ import {
   todo_load_success,
   add_todo,
   add_todo_success,
+  delete_todo,
+  delete_todo_success,
 } from '../Actions/todo-list'
 
 const base_url = 'http://localhost:3005/api'
@@ -15,18 +17,19 @@ const base_url = 'http://localhost:3005/api'
  */
 
 //  1、执行异步操作
-function* getTodoList() {
+function* getTodoList () {
   // 获取数据
   const todoList = yield axios.get(`${base_url}/todos`).then((res) => res.data)
   // 2、重新发送指令
   yield put(todo_load_success(todoList))
 }
 
-function* todoListSaga() {
+function* todoListSaga () {
   yield takeEvery(todo_load, getTodoList)
 }
 
-function* add_todo_func(action) {
+// 添加todo
+function* add_todo_func (action) {
   let res = yield axios
     .post(`${base_url}/todos`, {
       taskName: action.payload,
@@ -35,8 +38,18 @@ function* add_todo_func(action) {
   yield put(add_todo_success(res.task))
 }
 
-function* addTodoFunc() {
+function* addTodoFunc () {
   yield takeEvery(add_todo, add_todo_func)
 }
 
-export { todoListSaga, addTodoFunc }
+// 删除todo
+function* delete_todo_func (action) {
+  let res = yield axios.delete(`${base_url}/todos`, { params: action.payload }).then(res => res.data)
+  yield put(delete_todo_success(res.tasks))
+}
+
+function* deleteTodoFunc () {
+  yield takeEvery(delete_todo, delete_todo_func)
+}
+
+export { todoListSaga, addTodoFunc, deleteTodoFunc }

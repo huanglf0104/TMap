@@ -5,11 +5,17 @@ import * as todoListActions from '../Store/Actions/todo-list'
 import cx from 'classnames'
 
 class Main extends Component {
-  componentDidMount() {
+
+  componentDidMount () {
     this.props.todo_load()
   }
 
-  render() {
+  handleDelete = (params) => {
+    console.log('删除操作', this.props, params)
+    this.props.delete_todo(params)
+  }
+
+  render () {
     const { todos } = this.props
     return (
       <section className="main">
@@ -32,7 +38,7 @@ class Main extends Component {
                     checked={todo.isCompleted}
                   />
                   <label>{todo.taskName}</label>
-                  <button className="destroy"></button>
+                  <button className="destroy" onClick={() => this.handleDelete({ id: todo.id })}></button>
                 </div>
                 <input className="edit" value="Create a TodoMVC template" />
               </li>
