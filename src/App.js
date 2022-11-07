@@ -1,12 +1,5 @@
-import Count from './Components/Count'
-
-
-function App () {
-  return (
-    <div className="App">
-      <Count />
-    </div>
-  );
+function App() {
+  return <div className="App"></div>
 }
 
-export default App;
+export default App
