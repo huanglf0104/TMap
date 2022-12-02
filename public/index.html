@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
+    <title>TMap</title>
+    <style type="text/css">
+      #container {
+        /*地图(容器)显示大小*/
+        width: 400px;
+        height: 400px;
+      }
+    </style>
+    <!-- <script src="https://map.qq.com/api/gljs?v=1.exp&key=LA4BZ-BF33J-GEIFX-KXUCJ-2MNQJ-MXBRC"></script> -->
+    <!-- <script
+      charset="utf-8"
+      src="https://map.qq.com/api/gljs?v=2.exp&key=LA4BZ-BF33J-GEIFX-KXUCJ-2MNQJ-MXBRC&libraries=drawing,geometry,place,convertor,visualization"
+    ></script> -->
+    <!-- <script
+      charset="utf-8"
+      src="https://map.qq.com/api/js?v=2.exp&key=LA4BZ-BF33J-GEIFX-KXUCJ-2MNQJ-MXBRC&libraries=place"
+    ></script> -->
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
-  <title>React Todos</title>
-</head>
+    <!-- 腾讯地图定位 -->
+    <script
+      type="text/javascript"
+      src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"
+    ></script>
+  </head>
 
-<body>
-  <div id="root"></div>
-</body>
-
+  <body>
+    <div id="root"></div>
+    <!-- 定义地图显示容器 -->
+    <!-- <div id="container"></div> -->
+  </body>
 </html>

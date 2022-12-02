@@ -1,15 +1,7 @@
-import Header from './Components/Header'
-import Main from './Components/Main'
-import Footer from './Components/Footer'
+import TMapView from './TMapView'
 
 function App() {
-  return (
-    <div className="todoapp">
-      <Header />
-      <Main />
-      <Footer />
-    </div>
-  )
+  return <TMapView />
 }
 
 export default App
